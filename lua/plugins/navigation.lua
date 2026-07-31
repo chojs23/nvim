@@ -134,6 +134,10 @@ vim.api.nvim_create_autocmd("WinResized", {
 })
 
 require("nvim-tree").setup({
+  reload_on_bufenter = true,
+  filesystem_watchers = {
+    enable = false,
+  },
   view = {
     width = 25,
   },
@@ -388,7 +392,7 @@ local function resize_and_remember_tree_width(resize)
 
     for _, other_winid in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
       local is_tiled_neighbor = other_winid ~= winid
-        and vim.api.nvim_win_get_config(other_winid).relative == ""
+          and vim.api.nvim_win_get_config(other_winid).relative == ""
       if is_tiled_neighbor then
         api.tree.resize({ absolute = vim.api.nvim_win_get_width(winid) })
         return
