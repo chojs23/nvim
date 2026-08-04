@@ -136,7 +136,7 @@ vim.api.nvim_create_autocmd("WinResized", {
 require("nvim-tree").setup({
   reload_on_bufenter = true,
   filesystem_watchers = {
-    enable = false,
+    enable = true,
   },
   view = {
     width = 25,
