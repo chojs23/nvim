@@ -329,7 +329,7 @@ vim.api.nvim_create_autocmd("BufRead", {
   once = true,
   callback = function()
     require("crates").setup({
-      max_parallel_requests = 8,
+      max_parallel_requests = 12,
       completion = {
         crates = {
           enabled = true,

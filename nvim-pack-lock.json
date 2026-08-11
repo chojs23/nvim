@@ -9,7 +9,7 @@
       "src": "https://github.com/stevearc/aerial.nvim"
     },
     "base16-nvim": {
-      "rev": "898823a",
+      "rev": "09944b3",
       "src": "https://github.com/RRethy/base16-nvim"
     },
     "beacon.nvim": {
@@ -54,11 +54,11 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "copilot.lua": {
-      "rev": "2a849bc",
+      "rev": "7e6723a",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "cord.nvim": {
-      "rev": "8f08161",
+      "rev": "012dcf6",
       "src": "https://github.com/vyfor/cord.nvim"
     },
     "crates.nvim": {
@@ -102,7 +102,7 @@
       "src": "https://github.com/iamcco/markdown-preview.nvim"
     },
     "mason-lspconfig.nvim": {
-      "rev": "7adc933",
+      "rev": "67029cc",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
     },
     "mason.nvim": {
@@ -126,7 +126,7 @@
       "src": "https://github.com/nvim-mini/mini.icons"
     },
     "mini.pairs": {
-      "rev": "b1fd9df3bb4a41c8f45778a3859ee80ef6b367e3",
+      "rev": "b1c5a72",
       "src": "https://github.com/nvim-mini/mini.pairs"
     },
     "mini.surround": {
@@ -178,7 +178,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "98b0b8a",
+      "rev": "43ed3797",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
@@ -190,7 +190,7 @@
       "src": "https://github.com/rcarriga/nvim-notify"
     },
     "nvim-origami": {
-      "rev": "0231230",
+      "rev": "a137d35",
       "src": "https://github.com/chrisgrieser/nvim-origami"
     },
     "nvim-scrollbar": {
@@ -202,15 +202,15 @@
       "src": "https://github.com/garymjr/nvim-snippets"
     },
     "nvim-tree.lua": {
-      "rev": "4213bd6",
+      "rev": "b2aadda",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "7248feac",
+      "rev": "c9f9ed6c",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-treesitter-context": {
-      "rev": "b311b30",
+      "rev": "f306133",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-context"
     },
     "nvim-treesitter-textobjects": {
@@ -222,7 +222,7 @@
       "src": "https://github.com/windwp/nvim-ts-autotag"
     },
     "nvim-web-devicons": {
-      "rev": "0ca28b6",
+      "rev": "2ae6958",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "oil.nvim": {
@@ -242,12 +242,12 @@
       "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "rustaceanvim": {
-      "rev": "5a3a4158857ee1f7ec839b6ddd87cc0083a19c5f",
+      "rev": "f4051fb",
       "src": "https://github.com/mrcjkb/rustaceanvim",
       "version": "9.0.0 - 10.0.0"
     },
     "smart-splits.nvim": {
-      "rev": "de39b4d",
+      "rev": "0fe3bbd",
       "src": "https://github.com/mrjones2014/smart-splits.nvim"
     },
     "snacks.nvim": {
