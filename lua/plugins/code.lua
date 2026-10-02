@@ -213,7 +213,7 @@ local servers = {
           useany = true,
         },
         completeUnimported = true,
-        gofumpt = true,
+        gofumpt = false, -- want to use gofmt
         staticcheck = true,
         usePlaceholders = true,
       },
@@ -368,6 +368,7 @@ conform.setup({
     lsp_format = "fallback",
   },
   formatters_by_ft = {
+    go = { "gofmt" },
     lua = { "stylua" },
     fish = { "fish_indent" },
     sh = { "shfmt" },

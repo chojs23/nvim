@@ -2,9 +2,9 @@
 -- im-switch.nvim
 -- ==============================================================================
 
-require("im-switch").setup({
-  auto_capslock_off = true,
-})
+-- require("im-switch").setup({
+--   auto_capslock_off = true,
+-- })
 
 -- ==============================================================================
 -- cord.nvim
