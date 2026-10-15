@@ -151,7 +151,7 @@ local function active_lsp()
       end
     end
   end
-  return "No Active Lsp"
+  return "LSP: x"
 end
 
 local function active_formatters()
@@ -164,7 +164,7 @@ local function active_formatters()
     table.insert(names, "LSP")
   end
 
-  return #names > 0 and table.concat(names, ", ") or "No Active Formatter"
+  return #names > 0 and table.concat(names, ", ") or "FMT: x"
 end
 
 require("lualine").setup({
