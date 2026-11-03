@@ -79,6 +79,7 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
 
     -- Now that gitsigns is loaded, wire its hunks into the scrollbar.
     require("scrollbar.handlers.gitsigns").setup()
+    require("scrollbar.utils").set_highlights()
   end,
 })
 

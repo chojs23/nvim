@@ -5,6 +5,23 @@
 local group = vim.api.nvim_create_augroup("colorscheme", { clear = true })
 
 local function apply_overrides()
+  -- Preserve text colors while letting the terminal background show through.
+  for _, name in ipairs({
+    "Normal",
+    "NormalNC",
+    "NormalFloat",
+    "FloatBorder",
+    "SignColumn",
+    "LineNr",
+    "CursorLineNr",
+    "EndOfBuffer",
+  }) do
+    local highlight = vim.api.nvim_get_hl(0, { name = name, link = false })
+    highlight.bg = nil
+    highlight.ctermbg = nil
+    vim.api.nvim_set_hl(0, name, highlight)
+  end
+
   vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#7d8299", bg = "#262626" })
   vim.api.nvim_set_hl(0, "SnacksPickerGitStatusModified", { fg = "#FF8800" })
   vim.api.nvim_set_hl(0, "SnacksPickerGitStatusUntracked", { fg = "#6BB8FF" })
