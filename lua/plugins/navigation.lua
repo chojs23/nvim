@@ -273,6 +273,45 @@ local function ensure()
   })
 end
 
+local function live_grep(cwd)
+  ensure()
+  local options = { cwd = cwd or vim.uv.cwd() }
+  local config = require("telescope.config").values
+  local sorter = require("telescope.sorters").highlighter_only(options)
+  local highlighter = sorter.highlighter
+
+  -- The mode prefix controls ripgrep, but is not part of the search or highlighting.
+  sorter.highlighter = function(self, prompt, display)
+    local query = prompt:gsub("^rg ", "")
+    return highlighter(self, query, display)
+  end
+
+  local picker = require("telescope.pickers").new(options, {
+    prompt_title = "Live Grep (rg <pattern> for regex)",
+    finder = require("telescope.finders").new_job(function(prompt)
+      local query, prefixes = prompt:gsub("^rg ", "")
+      if query == "" then
+        return nil
+      end
+
+      -- Choose the mode for each edit, so removing the prefix restores literal search.
+      return vim.list_extend(vim.deepcopy(config.vimgrep_arguments), {
+        prefixes == 1 and "--no-fixed-strings" or "--fixed-strings",
+        "--",
+        query,
+      })
+    end, require("telescope.make_entry").gen_from_vimgrep(options), nil, options.cwd),
+    previewer = config.grep_previewer(options),
+    sorter = sorter,
+    attach_mappings = function(_, map)
+      map("i", "<C-Space>", require("telescope.actions").to_fuzzy_refine)
+      return true
+    end,
+    push_cursor_on_edit = true,
+  })
+  picker:find()
+end
+
 local function find_files(options)
   ensure()
   options = options or {}
@@ -298,8 +337,7 @@ local root = project_root
 
 map("n", "<leader>,", pick("buffers", { sort_mru = true, sort_lastused = true }), { desc = "Switch buffer" })
 map("n", "<leader>/", function()
-  ensure()
-  require("telescope.builtin").live_grep({ cwd = root() })
+  live_grep(root())
 end, { desc = "Grep root directory" })
 map("n", "<leader>:", pick("command_history"), { desc = "Command history" })
 map("n", "<leader><space>", find_files, { desc = "Find files in root directory" })
@@ -337,10 +375,9 @@ map("n", "<leader>sC", pick("commands"), { desc = "Commands" })
 map("n", "<leader>sd", pick("diagnostics"), { desc = "Diagnostics" })
 map("n", "<leader>sD", pick("diagnostics", { bufnr = 0 }), { desc = "Buffer diagnostics" })
 map("n", "<leader>sg", function()
-  ensure()
-  require("telescope.builtin").live_grep({ cwd = root() })
+  live_grep(root())
 end, { desc = "Grep root directory" })
-map("n", "<leader>sG", pick("live_grep"), { desc = "Grep cwd" })
+map("n", "<leader>sG", live_grep, { desc = "Grep cwd" })
 map("n", "<leader>sh", pick("help_tags"), { desc = "Help pages" })
 map("n", "<leader>sH", pick("highlights"), { desc = "Highlight groups" })
 map("n", "<leader>sj", pick("jumplist"), { desc = "Jumplist" })

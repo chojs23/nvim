@@ -38,12 +38,12 @@ vim.o.timeoutlen = 300
 require("which-key").setup({
   win = { border = "single" },
   spec = {
-    { "<leader>f",  group = "file/find" },
-    { "<leader>g",  group = "git" },
+    { "<leader>f", group = "file/find" },
+    { "<leader>g", group = "git" },
     { "<leader>gh", group = "hunks" },
-    { "<leader>s",  group = "search" },
+    { "<leader>s", group = "search" },
     { "<leader>sn", group = "Noice" },
-    { "<leader>u",  group = "toggle" },
+    { "<leader>u", group = "toggle" },
   },
 })
 
@@ -68,6 +68,10 @@ require("scrollbar.handlers.search").setup({
   override_lens = function() end,
 })
 require("scrollbar").setup({
+  marks = {
+    -- Lower values win overlaps, so Git marks (7) take precedence over the cursor.
+    Cursor = { priority = 8 },
+  },
   handlers = {
     cursor = true,
     diagnostic = true,
