@@ -82,7 +82,3 @@ require("scrollbar").setup({
     ale = false,
   },
 })
-
-require("origami").setup({
-  foldKeymaps = { setup = false },
-})
