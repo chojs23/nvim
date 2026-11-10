@@ -227,6 +227,14 @@ local function ensure()
   local actions = require("telescope.actions")
   local builtin = require("telescope.builtin")
 
+  -- Plenary supports top and bottom border titles without an extra window.
+  local function file_picker_title(title)
+    return {
+      { pos = "N", text = title },
+      { pos = "S", text = "Alt-i ignored | Alt-h hidden | Ctrl-/ help" },
+    }
+  end
+
   require("telescope").setup({
     defaults = {
       prompt_prefix = "> ",
@@ -268,6 +276,10 @@ local function ensure()
       find_files = {
         find_command = find_command(),
         hidden = true,
+        prompt_title = file_picker_title("Find Files"),
+      },
+      git_files = {
+        prompt_title = file_picker_title("Git Files"),
       },
     },
   })
