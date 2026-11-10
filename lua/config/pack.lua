@@ -42,7 +42,7 @@ vim.pack.add({
   "https://github.com/neovim/nvim-lspconfig",
   { src = "https://github.com/mrcjkb/rustaceanvim", version = vim.version.range("^9") },
   "https://github.com/saecki/crates.nvim",
-  { src = "https://github.com/saghen/blink.cmp",    version = vim.version.range("1.*") },
+  { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1.*") },
   "https://github.com/zbirenbaum/copilot.lua",
   "https://github.com/stevearc/conform.nvim",
   "https://github.com/nvim-treesitter/nvim-treesitter",
@@ -55,7 +55,8 @@ vim.pack.add({
   -- plugin/gitsigns.lua eager-requires the module, so adding it here would pull
   -- ~20ms of module loading onto the startup path.
   "https://github.com/mbbill/undotree",
-  "https://github.com/petertriho/nvim-scrollbar",
+  -- TODO: Follow the default branch after v2 lands on main.
+  { src = "https://github.com/petertriho/nvim-scrollbar", version = "refactor/v2" },
   "https://github.com/kevinhwang91/nvim-hlslens",
   "https://github.com/chrisgrieser/nvim-origami",
   "https://github.com/nvim-lualine/lualine.nvim",

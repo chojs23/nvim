@@ -64,21 +64,17 @@ for key, command in pairs(search_keys) do
   vim.keymap.set("n", key, command, { silent = true })
 end
 
-require("scrollbar.handlers.search").setup({
-  override_lens = function() end,
-})
 require("scrollbar").setup({
   marks = {
     -- Lower values win overlaps, so Git marks (7) take precedence over the cursor.
     Cursor = { priority = 8 },
   },
-  handlers = {
+  providers = {
     cursor = true,
     diagnostic = true,
-    -- Enabled by git.lua after Gitsigns loads.
-    gitsigns = false,
-    handle = true,
     search = true,
-    ale = false,
+    -- The provider picks up Gitsigns when it loads on the first file.
+    gitsigns = true,
+    marks = false,
   },
 })
