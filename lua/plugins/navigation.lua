@@ -342,8 +342,12 @@ end, { desc = "Grep root directory" })
 map("n", "<leader>:", pick("command_history"), { desc = "Command history" })
 map("n", "<leader><space>", find_files, { desc = "Find files in root directory" })
 
-map("n", "<leader>fb", pick("buffers", { sort_mru = true, sort_lastused = true, ignore_current_buffer = true }),
-  { desc = "Buffers" })
+map(
+  "n",
+  "<leader>fb",
+  pick("buffers", { sort_mru = true, sort_lastused = true, ignore_current_buffer = true }),
+  { desc = "Buffers" }
+)
 map("n", "<leader>fB", pick("buffers"), { desc = "All buffers" })
 map("n", "<leader>fc", function()
   ensure()
@@ -413,7 +417,9 @@ map("n", "<leader>sS", pick("lsp_dynamic_workspace_symbols"), { desc = "Workspac
 -- ==============================================================================
 
 local smart_splits = require("smart-splits")
-smart_splits.setup({})
+smart_splits.setup({
+  mux = { backend = "smart-splits-backend-wezterm" },
+})
 
 local map = vim.keymap.set
 
@@ -428,8 +434,7 @@ local function resize_and_remember_tree_width(resize)
     end
 
     for _, other_winid in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
-      local is_tiled_neighbor = other_winid ~= winid
-          and vim.api.nvim_win_get_config(other_winid).relative == ""
+      local is_tiled_neighbor = other_winid ~= winid and vim.api.nvim_win_get_config(other_winid).relative == ""
       if is_tiled_neighbor then
         api.tree.resize({ absolute = vim.api.nvim_win_get_width(winid) })
         return

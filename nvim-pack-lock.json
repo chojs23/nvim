@@ -8,6 +8,10 @@
       "rev": "28fe6e822ae344544c379d60fcb13c9519a1f08a",
       "src": "https://github.com/stevearc/aerial.nvim"
     },
+    "backend-wezterm": {
+      "rev": "ae840db696791f638c190c3e0534d2ddfcd5e6a7",
+      "src": "https://github.com/smart-splits-nvim/backend-wezterm"
+    },
     "base16-nvim": {
       "rev": "bd9ad214eaeefec5f937cb49effc3c0ffb2f57ac",
       "src": "https://github.com/RRethy/base16-nvim"

@@ -61,6 +61,7 @@ vim.pack.add({
   "https://github.com/chrisgrieser/nvim-origami",
   "https://github.com/nvim-lualine/lualine.nvim",
   "https://github.com/mrjones2014/smart-splits.nvim",
+  "https://github.com/smart-splits-nvim/backend-wezterm",
   "https://github.com/chojs23/im-switch.nvim",
   "https://github.com/vyfor/cord.nvim",
   "https://github.com/iamcco/markdown-preview.nvim",
