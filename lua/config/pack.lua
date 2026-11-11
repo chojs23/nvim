@@ -54,7 +54,6 @@ vim.pack.add({
   -- gitsigns is added lazily from git.lua on the first file open. Its own
   -- plugin/gitsigns.lua eager-requires the module, so adding it here would pull
   -- ~20ms of module loading onto the startup path.
-  "https://github.com/mbbill/undotree",
   -- TODO: Follow the default branch after v2 lands on main.
   { src = "https://github.com/petertriho/nvim-scrollbar", version = "refactor/v2" },
   "https://github.com/kevinhwang91/nvim-hlslens",

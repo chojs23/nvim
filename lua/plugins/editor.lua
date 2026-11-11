@@ -47,7 +47,9 @@ require("which-key").setup({
   },
 })
 
-vim.keymap.set("n", "<leader>t", "<cmd>UndotreeToggle<cr>", { desc = "Undotree" })
+vim.keymap.set("n", "<leader>su", function()
+  Snacks.picker.undo()
+end, { desc = "Undo History" })
 
 require("hlslens").setup({ calm_down = false })
 vim.api.nvim_set_hl(0, "HlSearchLens", { link = "Search" })

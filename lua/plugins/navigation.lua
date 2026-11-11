@@ -228,10 +228,10 @@ local function ensure()
   local builtin = require("telescope.builtin")
 
   -- Plenary supports top and bottom border titles without an extra window.
-  local function file_picker_title(title)
+  local function picker_title(title, hints)
     return {
       { pos = "N", text = title },
-      { pos = "S", text = "Alt-i ignored | Alt-h hidden | Ctrl-/ help" },
+      { pos = "S", text = hints or "Alt-i ignored | Alt-h hidden | Ctrl-/ help" },
     }
   end
 
@@ -276,12 +276,29 @@ local function ensure()
       find_files = {
         find_command = find_command(),
         hidden = true,
-        prompt_title = file_picker_title("Find Files"),
+        prompt_title = picker_title("Find Files"),
       },
       git_files = {
-        prompt_title = file_picker_title("Git Files"),
+        prompt_title = picker_title("Git Files"),
       },
     },
+  })
+
+  -- FileType covers built-in and custom pickers without replacing their mappings.
+  vim.api.nvim_create_autocmd("FileType", {
+    group = vim.api.nvim_create_augroup("telescope_hints", { clear = true }),
+    pattern = "TelescopePrompt",
+    callback = function(event)
+      local picker = require("telescope.actions.state").get_current_picker(event.buf)
+      -- File pickers and resumed pickers already carry their footer in the title.
+      if type(picker.prompt_title) == "table" then
+        return
+      end
+
+      -- Keep the title on the picker so resizing and resuming retain the hints.
+      picker.prompt_title = picker_title(picker.prompt_title or "", "Enter select | Ctrl-s jump | Ctrl-/ help")
+      picker.prompt_border:change_title(picker.prompt_title)
+    end,
   })
 end
 
