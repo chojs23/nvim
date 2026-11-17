@@ -67,6 +67,13 @@ for key, command in pairs(search_keys) do
 end
 
 require("scrollbar").setup({
+  scrollbar = {
+    overlap = {
+      reserve = false,
+      show_through = 60,
+      marks = "tint",
+    },
+  },
   marks = {
     -- Lower values win overlaps, so Git marks (7) take precedence over the cursor.
     Cursor = { priority = 8 },
