@@ -31,6 +31,7 @@ vim.pack.add({
   "https://github.com/nvim-mini/mini.pairs",
   "https://github.com/nvim-mini/mini.surround",
   "https://github.com/folke/snacks.nvim",
+  "https://github.com/rafi/packman.nvim",
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/MunifTanjim/nui.nvim",
   "https://github.com/folke/noice.nvim",

@@ -242,7 +242,7 @@ local servers = {
   marksman = {},
   pyright = {},
   ruff = {},
-  tsgo = {},
+  tsc = {},
   eslint = {},
   yamlls = {},
 }
